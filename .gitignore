@@ -1,0 +1,7 @@
+.vagrant
+.DS_Store
+TYPO3.CMS
+public/fileadmin/_temp_
+public/fileadmin/user_upload
+public/uploads
+public/typo3temp
