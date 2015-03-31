@@ -3,7 +3,7 @@ return array(
 	'BE' => array(
 		'debug' => FALSE,
 		'explicitADmode' => 'explicitAllow',
-		'installToolPassword' => '$P$CJRMX.pv/eyBN3CvzUW6B/Hu1TmpA21',
+		'installToolPassword' => '$P$CqYnkJ2ZJDtdlONq.DOJdPotcB1x5u1',
 		'loginSecurityLevel' => 'rsa',
 	),
 	'DB' => array(
@@ -26,6 +26,14 @@ return array(
 		'loginSecurityLevel' => 'rsa',
 	),
 	'GFX' => array(
+		'colorspace' => 'sRGB',
+		'im' => 1,
+		'im_mask_temp_ext_gif' => 1,
+		'im_path' => '/usr/bin/',
+		'im_path_lzw' => '/usr/bin/',
+		'im_v5effects' => 1,
+		'im_version_5' => 'im6',
+		'image_processing' => 1,
 		'jpg_quality' => '80',
 	),
 	'SYS' => array(
@@ -48,9 +56,9 @@ return array(
 		'devIPmask' => '',
 		'displayErrors' => 0,
 		'enableDeprecationLog' => FALSE,
-		'encryptionKey' => 'fd8bcb82db1a67cebd5d832e9ab20c5507e3f26294190039f2ef9fdfd68ab7b2c6d8cc085d7113f0dd1f903be3895288',
+		'encryptionKey' => 'ea83e45d3b89a4fd50e81268d8fa438e02dfc01f3ff839e3a99add128704b365e3774d789e8b65ca1338b67705d90871',
 		'isInitialInstallationInProgress' => FALSE,
-		'sitename' => 'New TYPO3 site',
+		'sitename' => 'TYPO3 6.2.11',
 		'sqlDebug' => 0,
 		'systemLogLevel' => 2,
 		't3lib_cs_convMethod' => 'mbstring',

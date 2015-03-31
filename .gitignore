@@ -5,3 +5,5 @@ public/fileadmin/_temp_
 public/fileadmin/user_upload
 public/uploads
 public/typo3temp
+html
+*.sql
