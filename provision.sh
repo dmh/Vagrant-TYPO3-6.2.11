@@ -4,12 +4,11 @@ echo "=============================="
 echo "Start Provision"
 echo "=============================="
 
-# Omit some terminal errors
+# Non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
 
 # Update apt-get
-apt-get update
-apt-get -y dist-upgrade
+apt-get update > /dev/null 2>&1
 
 # Install Apache
 apt-get -y install apache2 > /dev/null 2>&1
@@ -32,7 +31,7 @@ apt-get -y install mysql-server > /dev/null 2>&1
 
 # Create MySQL DB for TYPO3
 echo "CREATE DATABASE typo3" | mysql -uroot -p1234
-mysql -uroot -p1234 typo3 < /var/www/typo3-6.2.11.sql
+mysql -uroot -p1234 typo3 < /var/www/typo3-6.2.11db/typo3-6.2.11.sql
 
 
 # Set up vhost
