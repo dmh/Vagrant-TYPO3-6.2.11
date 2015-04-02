@@ -1,35 +1,42 @@
 #!/usr/bin/env bash
 
 echo "=============================="
-echo "Start Provision"
+echo "Starting Provision..."
 echo "=============================="
 
 # Non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
 
 # Update apt-get
+echo -e "Updating apt-get... \r1% "
 apt-get update > /dev/null 2>&1
 
 # Install Apache
+echo -e "Installing Apache... \r10% "
 apt-get -y install apache2 > /dev/null 2>&1
 
 # Install PHP5 + libraries
+echo -e "Installing PHP5 + libraries... \r20% "
 apt-get install -y php5 libapache2-mod-php5 php5-curl php5-mysql php5-gd php5-xcache php5-cli > /dev/null 2>&1
 
 # Install imagemagick (for TYPO3)
+echo -e "Installing Imagemagick... \r50% "
 apt-get -y install imagemagick > /dev/null 2>&1
 
 
 # Install git & curl
+echo -e "Installing git & curl... \r60% "
 apt-get -y install git curl > /dev/null 2>&1
 
 # Install MySQL
+echo -e "Installing MySQL... \r70% "
 apt-get -y install debconf-utils > /dev/null 2>&1
 debconf-set-selections <<< "mysql-server mysql-server/root_password password 1234"
 debconf-set-selections <<< "mysql-server mysql-server/root_password_again password 1234"
 apt-get -y install mysql-server > /dev/null 2>&1
 
 # Create MySQL DB for TYPO3
+echo -e "Creating TYPO3 DB & VirtualHost... \r92% "
 echo "CREATE DATABASE typo3" | mysql -uroot -p1234
 mysql -uroot -p1234 typo3 < /var/www/typo3-6.2.11db/typo3-6.2.11.sql
 
@@ -57,15 +64,16 @@ sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 10M/" /etc/php5/apache2
 sed -i "s/max_execution_time = 30/max_execution_time = 240/" /etc/php5/apache2/php.ini
 sed -i "s/post_max_size = 8M/post_max_size = 20M/" /etc/php5/apache2/php.ini
 
-apt-get clean
+apt-get clean > /dev/null 2>&1
 
 # Restart MySQL
-echo "Restart MySQL"
-service mysql restart
+echo -e "Restarting MySQL & Apache... \r95% "
+service mysql restart > /dev/null 2>&1
 # Restart Apache
-echo "Restart Apache"
-service apache2 restart
-
+service apache2 restart > /dev/null 2>&1
+echo "Provision complete!"
+sleep 2
+echo "=============================="
 echo "========== INFO =============="
 echo "=============================="
 echo "VM IP"
@@ -81,5 +89,4 @@ echo "DB login: root"
 echo "DB password: 1234"
 echo "=============================="
 echo "=============================="
-echo "Provision complete!"
 echo "Open site in browser using IP address"
