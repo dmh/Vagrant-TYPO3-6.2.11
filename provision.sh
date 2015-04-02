@@ -28,7 +28,7 @@ apt-get -y install apache2 > /dev/null 2>&1
 
 # Install PHP5 + libraries
 echo -e "Installing PHP5 + libraries... \r20% "
-apt-get install -y php5 libapache2-mod-php5 php5-curl php5-mysql > /dev/null 2>&1
+apt-get install -y php5 libapache2-mod-php5 php5-curl php5-mysql php5-gd > /dev/null 2>&1
 
 # Install imagemagick (for TYPO3)
 echo -e "Installing Imagemagick... \r50% "
