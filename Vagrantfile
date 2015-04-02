@@ -5,6 +5,7 @@ Vagrant.configure("2") do |config|
 
     #Vagrant BOX / Official Ubuntu Server 14.04 LTS (Trusty Tahr) builds
     config.vm.box = "ubuntu/trusty64"
+    config.vm.box_check_update = false
 
     #Private Network / Static IP = 192.168.33.33
     config.vm.network "private_network", ip: "192.168.33.33"
