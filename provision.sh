@@ -4,6 +4,17 @@ echo "=============================="
 echo "Starting Provision..."
 echo "=============================="
 
+if [ ! -d "/var/www/typo3" ]; then
+    echo "=============================="
+    echo "Provision Stopped!!!"
+    echo "=============================="
+    echo "Warning!!!"
+    echo "Missed typo3 source files."
+    echo "Please run [bower install] to install all dependancies"
+fi
+
+if [ -d "/var/www/typo3" ]; then
+
 # Non-interactive mode
 export DEBIAN_FRONTEND=noninteractive
 
@@ -17,7 +28,7 @@ apt-get -y install apache2 > /dev/null 2>&1
 
 # Install PHP5 + libraries
 echo -e "Installing PHP5 + libraries... \r20% "
-apt-get install -y php5 libapache2-mod-php5 php5-curl php5-mysql php5-gd php5-xcache php5-cli > /dev/null 2>&1
+apt-get install -y php5 libapache2-mod-php5 php5-curl php5-mysql > /dev/null 2>&1
 
 # Install imagemagick (for TYPO3)
 echo -e "Installing Imagemagick... \r50% "
@@ -38,7 +49,7 @@ apt-get -y install mysql-server > /dev/null 2>&1
 # Create MySQL DB for TYPO3
 echo -e "Creating TYPO3 DB & VirtualHost... \r92% "
 echo "CREATE DATABASE typo3" | mysql -uroot -p1234
-mysql -uroot -p1234 typo3 < /var/www/typo3-6.2.11db/typo3-6.2.11.sql
+mysql -uroot -p1234 typo3 < /var/www/typo3db/typo3db.sql
 
 
 # Set up vhost
@@ -90,3 +101,5 @@ echo "DB password: 1234"
 echo "=============================="
 echo "=============================="
 echo "Open site in browser using IP address"
+
+fi

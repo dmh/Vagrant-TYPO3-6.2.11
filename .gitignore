@@ -7,5 +7,5 @@ public/uploads
 public/typo3temp
 html
 *.sql
-typo3-6.2.11db
-typo3-6.2.11
+typo3db
+typo3

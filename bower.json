@@ -1,8 +1,7 @@
 {
     "name": "Vagrant VM for TYPO3 6.2.11",
     "devDependencies": {
-        "typo3-6.2.11": "https://github.com/TYPO3/TYPO3.CMS.git#6.2.11",
-        "typo3-6.2.11db": "https://github.com/dmh/TYPO3-6.2.11-DB.git"
+        "typo3": "https://github.com/TYPO3/TYPO3.CMS.git#6.2.11",
+        "typo3db": "https://github.com/dmh/typo3db.git#db-6.2.11"
     }
 }
-
